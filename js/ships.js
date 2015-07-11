@@ -1,5 +1,7 @@
 var selectedship = "yellow";
 var selected = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+var sky = new Image();
+sky.src = "ships/sky.png";
 
 function check(ship) {
 	selectedship = ship;
@@ -82,4 +84,10 @@ function changeImage(pickedElement) {
 		}
 
 	}
+}
+
+window.onload = function() {
+    var canvas = document.getElementById("previewCanvas");
+    var cxt = canvas.getContext("2d");
+    cxt.drawImage(sky, 10, 10);
 }
