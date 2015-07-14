@@ -18,25 +18,16 @@ greenship.src = "ships/greenship.png";
 redship.src = "ships/redship.png";
 yellowship.src = "ships/yellowship.png";
 holder.src = "ships/holder.png";
-var eraseBool = false;
 var spotColors = [redship, redship, redship, redship, redship, redship, redship, redship, redship]
 
 function check(ship) {
 	selectedship = ship;
-	console.log(selectedship);
 }
 
 function changeImage(pickedElement) {
 
 	var clickCount = selected[0] + selected[1] + selected[2] + selected[3] + selected[4] + selected[5] + selected[6] + selected[7] + selected[8];
 	
-	if(selectedship === "erase")
-	{
-		console.log("Its in erase");
-		eraseBool = true;
-		console.log(eraseBool);
-
-	}
 	if(clickCount > 4){
 		if((pickedElement === 1) && (selected[0] === 1)){
 		    document.getElementById("placeShip1").src = "ships/" +selectedship + ".png";
@@ -171,7 +162,8 @@ function getShipColor(theOrder,theShip) {
 	if(theShip === "yellowship"){
 		spotColors[theOrder] = yellowship;		    	
 	}
-	if(theShip == "erase"){
+	if(theShip == "holder"){
 		spotColors[theOrder] = holder;
+		selected[theOrder] = 0;
 	}
 }
